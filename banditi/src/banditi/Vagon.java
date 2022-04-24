@@ -15,21 +15,15 @@ public class Vagon {
 	
 	public boolean sadrziBandita(Bandit b) {
 		for(Bandit bb : banditi) {
-			if(b.equals(bb))
+			if(b == bb)
 				return true;
 		}
 		return false;
 	}
 	
 	public Vagon ukloniBandita(Bandit b) {
-		int i = 0;
-		for(Bandit bb : banditi) {
-			if(b.equals(bb)) {
-				banditi.remove(i);
-				return this;
-			}
-			i++;
-		}
+		if(sadrziBandita(b))
+			banditi.remove(b);
 		return this;
 	}
 	
@@ -39,26 +33,6 @@ public class Vagon {
 	
 	public Bandit dohvatiBandita(int i){
 		return banditi.get(i);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Vagon other = (Vagon) obj;
-		if (this.dohvatiBrojBandita() != other.dohvatiBrojBandita())
-			return false;
-		int i = 0;
-		for(Bandit b : banditi) {
-			if(!b.equals(other.dohvatiBandita(i)))
-				return false;
-			i++;
-		}
-		return true;
 	}
 
 	@Override
@@ -78,14 +52,7 @@ public class Vagon {
 	}
 
 	public static void main(String[] args) {
-		Vagon v = new Vagon();
-		Bandit b = new Bandit(Bandit.Tim.B);
-		v.dodajBandita(new Bandit(Bandit.Tim.B));
-		v.dodajBandita(b);
-		v.dodajBandita(new Bandit(Bandit.Tim.B));
-		v.ukloniBandita(b);
-		System.out.println(v);
-		System.out.println(v.dohvatiBrojBandita());
+		
 	}
 
 }

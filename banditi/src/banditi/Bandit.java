@@ -19,7 +19,6 @@ public class Bandit {
 		return tim;
 	}
 
-
 	public int dohvatiBrojZlatnika() {
 		return zlatnici;
 	}
@@ -29,25 +28,11 @@ public class Bandit {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Bandit other = (Bandit) obj;
-		return tim == other.tim && zlatnici == other.zlatnici;
-	}
-
-	@Override
 	public String toString() {
 		return tim.toString()+zlatnici;
 	}
 
 	public static void main(String[] args) {
-		Bandit b = new Bandit(Bandit.Tim.B);
-		System.out.println(b);
 
 	}
 

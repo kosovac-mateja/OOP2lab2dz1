@@ -10,11 +10,17 @@ public class Pomeranje extends Akcija {
 	}
 
 	@Override
-	public void izvrsi(Bandit b) throws GNepostojeciVagon {
-		Vagon vStari = kompozicija.dohvatiVagon(b);
-		Vagon vNovi = kompozicija.dohvatiSusedniVagon(vStari, s);
-		vStari.ukloniBandita(b);
-		vNovi.dodajBandita(b);
+	public void izvrsi(Bandit b){
+		Vagon vStari;
+		try {
+			vStari = kompozicija.dohvatiVagon(b);
+			Vagon vNovi = kompozicija.dohvatiSusedniVagon(vStari, s);
+			vStari.ukloniBandita(b);
+			vNovi.dodajBandita(b);
+		} catch (GNepostojeciVagon e) {
+			
+		}
+		
 	}
 	
 	@Override
